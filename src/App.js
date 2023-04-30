@@ -3,18 +3,21 @@ import './App.css';
 
 function App() {
     return (
-        <>
+        <div className='wrapper'>
             <h1>Click Counter</h1>
-            <Counter i={0}></Counter>
-        </>
+            <Counter></Counter>
+        </div>
     );
 }
 
-function Counter(i = 0) {
-    const [count, setCount] = useState(i);
+function Counter() {
+    const [count, setCount] = useState(0);
 
     return (
-        <button className='counter'>You clicked {count} times.</button>
+        <>
+            <button className='counter' onClick={ () => setCount(count + 1) }>You clicked {count} times.</button>
+            <button className='reset' onClick={ () => setCount(0) }>Reset</button>
+        </>
     );
 }
 
